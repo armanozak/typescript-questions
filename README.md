@@ -23,7 +23,7 @@ Can we force TypeScript to use `string` here? Yes.
 const foo: string = "1234"
 ```
   
-Info: https://typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types
+Info: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types
 
 </details>
 
@@ -48,7 +48,7 @@ What are the values of `Foo` and `Baz` flags?
 
 When an enum member doesn't have an initializer, it is assigned as previous member value +1 or 0 if it is the first member.
 
-Info: https://typescriptlang.org/docs/handbook/enums.html#computed-and-constant-members
+Info: https://www.typescriptlang.org/docs/handbook/enums.html#computed-and-constant-members
 
 </details>
 
@@ -77,7 +77,7 @@ We want to keep the `Id` type alias compatible with the actual type of that prop
 - use hard-coded types.
 - leverage any technique that gets the return type of randomUUID (because it can change too).
 
-Info: https://typescriptlang.org/docs/handbook/2/typeof-types.html
+Info: https://www.typescriptlang.org/docs/handbook/2/typeof-types.html
 
 </details>
 
@@ -106,7 +106,7 @@ const params: Parameters<typeof add> = [1, 2];
 
 Can't we use a tuple instead? Yes, assigning `[number, number]` to or using `as const` on params will work too. However, deriving the type from the parameters of the `add` function will always keep them in sync.
 
-Info: https://typescriptlang.org/docs/handbook/utility-types.html#parameterstype
+Info: https://www.typescriptlang.org/docs/handbook/utility-types.html#parameterstype
 
 </details>
 
@@ -140,7 +140,7 @@ What are `T1` and `T2`?
 
 The type of `fooOrBar` is a union type (`Foo | Bar`). However, TypeScript is able to narrow types based on assignments. So, `T1` becomes Bar. Then we assign another value and TypeScript narrows the type again, this time as `Foo`.
 
-Info: https://typescriptlang.org/docs/handbook/2/narrowing.html#assignments
+Info: https://www.typescriptlang.org/docs/handbook/2/narrowing.html#assignments
 
 </details>
 
@@ -185,13 +185,13 @@ How should I fill in the blank to get only the string keys of `SplitAfterEach`?
 
 We can get keys with `keyof`, but keys can be of `number` or `symbol` type too. An intersection type narrows it for us.
 
-Info: https://typescriptlang.org/docs/handbook/2/objects.html#intersection-types
+Info: https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types
 
 **Option 2:** Use a utility type
 
 `Extract<keyof SplitAfterEach, string>`
 
-Info: https://typescriptlang.org/docs/handbook/utility-types.html#extracttype-union
+Info: https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union
 
 </details>
 
@@ -210,7 +210,7 @@ What is `X`?
 
 `Awaited` is a utility type that unwraps promises recursively.
 
-Info: https://typescriptlang.org/docs/handbook/utility-types.html#awaitedtype
+Info: https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype
 
 </details>
 
@@ -239,7 +239,7 @@ How should I fill in the blank to get all error types and none of the success ty
 
 Template literals allow us to compose string literal types, and string acts like a wildcard. So, when `Extract` asserts the assignability of the `AppEvent` union against `${string}Error`, all members ending with "Error" pass.
 
-Info: https://typescriptlang.org/docs/handbook/2/template-literal-types.html
+Info: https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html
 
 </details>
 
@@ -280,7 +280,7 @@ type ExtractError<T> = T extends `${string}Error` ? T : never;
 type AppError = ExtractError<AppEvent>;
 ```
 
-Info: https://typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types
+Info: https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types
 
 </details>
 
@@ -351,7 +351,7 @@ declare module './human' {
 }
 ```
 
-Info: https://typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation
+Info: https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation
 
 </details>
 
@@ -382,7 +382,7 @@ declare global {
 }
 ```
 
-Info: https://typescriptlang.org/docs/handbook/declaration-merging.html#global-augmentation
+Info: https://www.typescriptlang.org/docs/handbook/declaration-merging.html#global-augmentation
 
 </details>
 
@@ -440,7 +440,7 @@ function isCoordinates(
 
 This kind of return type is called a "type predicate".
 
-Info: https://typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
+Info: https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
 
 </details>
 
@@ -497,7 +497,7 @@ declare function exhaustCases(
 
 `never` is assignable to all types, but no other type is assignable to `never`. If the case clauses in your switch statement exhaust all members of the union type, TypeScript will narrow the type in the default clause down to `never`, so there will be no errors. In this example, the `Hybrid` interface is not exhausted, so we would get an error if we try to assign it to a parameter with `never` type.
 
-Info: https://typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
+Info: https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
 
 > Why is the return type `never` and not `void`? 🤔
 > 
@@ -587,7 +587,7 @@ declare function register(rec: string): boolean;
 records.forEach(register);
 ```
 
-Info: https://typescriptlang.org/docs/handbook/2/functions.html#return-type-void
+Info: https://www.typescriptlang.org/docs/handbook/2/functions.html#return-type-void
 
 </details>
 
@@ -634,7 +634,7 @@ type Mutable<T> = {
 
 Removing modifiers like `readonly` and optional (`?`) is possible while mapping types.
 
-Info: https://typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers
+Info: https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers
 
 </details>
 
@@ -696,7 +696,7 @@ type BasePoint = OmitIndexSignatures<Point>;
 
 How should I declare the `OmitIndexSignatures` type so that `BasePoint` won't have any index signatures?
 
-Ref: https://typescriptlang.org/docs/handbook/2/objects.html#index-signatures
+Ref: https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures
 
 <details>
   <summary>Answer</summary>
@@ -747,7 +747,7 @@ type Await<T> =
 
 Conditional types allow us to infer types with the `infer` keyword.
 
-Info: https://typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types
+Info: https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types
 
 </details>
 
@@ -780,7 +780,7 @@ type ParseHookName<T> =
 type ParseHookNames<T> = ParseHookName<keyof T>;
 ```
 
-Info: https://typescriptlang.org/docs/handbook/2/template-literal-types.html#inference-with-template-literals
+Info: https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#inference-with-template-literals
 
 </details>
 
@@ -1088,7 +1088,7 @@ type ClearOpaqueTokensOf<T, K = OpaqueTokensOf<T>> = {
 };
 ```
 
-This is an approach to nominal typing in TypeScript, as described in this official example: https://typescriptlang.org/play#example/nominal-typing
+This is an approach to nominal typing in TypeScript, as described in this official example: https://www.typescriptlang.org/play#example/nominal-typing
 
 </details>
 
@@ -1316,7 +1316,7 @@ abstract class Foo {
 }
 ```
 
-Info: https://typescriptlang.org/docs/handbook/2/classes.html#static-members
+Info: https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members
 
 </details>
 
