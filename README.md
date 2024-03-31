@@ -235,7 +235,7 @@ How should I fill in the blank to get all error types and none of the success ty
 <details>
   <summary>Answer</summary>
 
-`${string}Error`
+`` `${string}Error` ``
 
 Template literals allow us to compose string literal types, and string acts like a wildcard. So, when `Extract` asserts the assignability of the `AppEvent` union against `${string}Error`, all members ending with "Error" pass.
 
